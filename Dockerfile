@@ -1,5 +1,8 @@
 FROM ubuntu:focal
 
+ARG TZ='Asia/Shanghai'
+
+ENV TZ ${TZ}
 ENV KEY **None**
 
 RUN sed -i s@archive.ubuntu.com@mirrors.ustc.edu.cn@g /etc/apt/sources.list \
