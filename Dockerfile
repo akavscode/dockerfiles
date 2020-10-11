@@ -2,7 +2,7 @@ FROM ubuntu:focal
 
 ENV KEY **None**
 
-RUN sed -i s@archive.ubuntu.com@mirrors.ustc.edu.cn@g /etc/apt/sources.list \
+RUN sed -i "s/http:\/\/archive.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g" /etc/apt/sources.list \
     && apt-get update && apt-get install -y --no-install-recommends openssh-server nano curl wget build-essential \
     && mkdir -p /var/run/sshd \
     && sed -i "s/PasswordAuthentication.*/PasswordAuthentication no/g" /etc/ssh/sshd_config \
